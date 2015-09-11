@@ -19,6 +19,9 @@ main = do
         it "of a valid array" $ do
 	  getCandidates [L,L,L] `shouldBe` [1]
 
+        it "of a partially-consumed array" $ do
+	  getCandidates [L,N,L] `shouldBe` []
+
 
 property_true :: Bool -> Bool
 property_true _ = True
