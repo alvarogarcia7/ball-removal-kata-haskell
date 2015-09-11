@@ -86,8 +86,8 @@ removeOne idx dir = let cur = dir !! idx in
 putNone idx dir =  replaceAtIndex idx N dir
 
 removeAnother N idx dir = dir
-removeAnother L idx dir = replaceAtIndex (last $ filter (\x -> x < idx) $ getAllNonN dir) N dir
-removeAnother R idx dir = replaceAtIndex (head $ filter (\x -> x > idx) $ getAllNonN dir) N dir
+removeAnother L idx dir = replaceAtIndex (last $ filter (idx >) $ getAllNonN dir) N dir
+removeAnother R idx dir = replaceAtIndex (head $ filter (idx <) $ getAllNonN dir) N dir
 
 
 replaceAtIndex idx item xs = a ++ (item:b)
