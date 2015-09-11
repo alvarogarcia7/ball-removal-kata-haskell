@@ -18,24 +18,28 @@ main = do
     describe "get candidates" $ do
         it "of a valid array" $ do
 	  getCandidates [L,L,L] `shouldBe` [1]
+	  getCandidates [L,R,R,L] `shouldBe` [1,2]
 
         it "of a partially-consumed array" $ do
 	  getCandidates [L,N,L] `shouldBe` []
+	  getCandidates [N,N,L,L] `shouldBe` []
+	  getCandidates [N,N,L,R,L] `shouldBe` [3]
+	  getCandidates [N,N,L,R,R,L] `shouldBe` [3,4]
 
     describe "is finished" $ do
         it "should detect a finished array" $ do
-	  isFinished [] `shouldBe` True 
-	  isFinished [N] `shouldBe` True 
 	  isFinished [L,N] `shouldBe` True 
 	  isFinished [N,L,N] `shouldBe` True 
 	  isFinished [N,N,L,N] `shouldBe` True 
 	  isFinished [N,N,L] `shouldBe` True 
+	  isFinished [L,L,N] `shouldBe` True
 
-        it "should detect an unfinished array" $ do
-	  isFinished [L,L] `shouldBe` False
-	  isFinished [N,L,L] `shouldBe` False
-	  isFinished [L,N,L] `shouldBe` False
-	  isFinished [L,L,N] `shouldBe` False
+        it "should detect an unfinished array - 1" $ do
+	  isFinished [L,L,L] `shouldBe` False
+        it "should detect an unfinished array - 2" $ do
+	  isFinished [L,N,L,L] `shouldBe` False
+        it "should detect an unfinished array - 3" $ do
+	  isFinished [L,L,N,L] `shouldBe` False
 
     describe "remove elements" $ do
         it "should remove the last element, L" $ do
@@ -78,6 +82,9 @@ main = do
 	it "case 7" $ do
 	  removeBall "<><<><>" `shouldBe` "o.....o"
 	 
+	it "case 8" $ do
+	  removeBall ">>><<<>>>>><<<>" `shouldBe` "o.....o.o.....o"
+	 
 property_true :: Bool -> Bool
 property_true _ = True
 
@@ -85,7 +92,7 @@ data Direction = L | R | N deriving (Show, Eq)
 type Directions = [Direction]
 
 isFinished :: Directions -> Bool
-isFinished xs = (length $ filter (\x->x /= N) xs) `elem` [0, 1]
+isFinished xs = (length $ getCandidates xs) `elem` [0]
 
 fromDirection :: Directions -> String
 fromDirection xs = map fromDirection' xs
@@ -101,7 +108,7 @@ parseDirection '>' = R
 parseDirection x = N
 
 getCandidates :: [Direction] -> [Int]
-getCandidates xs = [i|i<-[1..(length xs)-2], xs !! i /= N]
+getCandidates xs = [(getAllNonN xs) !! i|i<-[1..(length $ getAllNonN xs)-2]]
 
 getAllNonN xs = [i|i<-[0..(length xs)-1], xs !! i /= N]
 
@@ -125,18 +132,19 @@ removeBall xs = fromDirection $ removeBall' $ toDirection xs
 removeBall' :: Directions -> Directions
 removeBall' xs = if isFinished xs
                  then xs
-		 else foldl1 merg $ removeBall'' xs 
-
-removeBall'' :: Directions -> [Directions]
-removeBall'' xs = map (\x-> removeOne x xs) $ getCandidates xs
+		 else foldl1 merg $ removeBall'' xs
+		 
+removeBall'' xs = map (\x-> removeBall' $ removeOne x xs) $ getCandidates xs 
 
 merg [] _ = []
 merg _ [] = []
 merg (x:xs) (x':xs') = unio x x' : merg xs xs'
 
-unio N _ = N
-unio _ N = N
-unio x _ = x
+unio L _ = L
+unio R _ = R
+unio _ L = L
+unio _ R = R
+unio N N = N
 
 -- Test
 
