@@ -56,6 +56,10 @@ main = do
         it "should remove the middle element, L" $ do
 	  removeOne 3 [L,R,N,L] `shouldBe` [L, N, N, N]
 
+    describe "remove balls" $ do
+        it "case 1" $ do
+	  removeBall "<<>" `shouldBe` "..o"
+	 
 property_true :: Bool -> Bool
 property_true _ = True
 
@@ -64,6 +68,11 @@ type Directions = [Direction]
 
 isFinished :: Directions -> Bool
 isFinished xs = (length $ filter (\x->x /= N) xs) `elem` [0, 1]
+
+fromDirection :: Directions -> String
+fromDirection xs = map fromDirection' xs
+fromDirection' N = '.'
+fromDirection' _ = 'o'
 
 toDirection :: String -> [Direction]
 toDirection = map parseDirection
@@ -92,6 +101,14 @@ removeAnother R idx dir = replaceAtIndex (head $ filter (idx <) $ getAllNonN dir
 
 replaceAtIndex idx item xs = a ++ (item:b)
     where (a, (_:b)) = splitAt idx xs
+
+removeBall :: String -> String
+removeBall xs = fromDirection $ removeBall' $ toDirection xs
+
+removeBall' :: Directions -> Directions
+removeBall' xs = if isFinished xs
+                 then xs
+		 else head $ map (\x-> removeOne x xs) $ getCandidates xs
 
 -- Test
 
