@@ -1,3 +1,103 @@
+slowTest 
+memo_fib 30000
+memo_fib 3000
+memo_fib 300
+memo_fib 30
+slow_fib 30
+slow_fib 50
+slow_fib 20
+slow_fib 10
+slowTest 
+memo_fib 1000
+:l Spec.hs 
+memo_fib 1000
+memo_fib 30
+:l Spec.hs 
+slow_fib 30
+:l Spec.hs 
+slowTest 
+:l Spec.hs 
+slowTest 
+:set +s
+:help
+slowTest 
+:l Spec.hs 
+nub [1,2,1]
+:l Spec.hs 
+nub
+removeBall hard 
+let hard = ">>><<<>>>>><<<>"
+:l Spec.hs 
+isFinished $ m' (m' (m' (m' ( m' ( m' hard' !! 0) !! 0) !! 0) !!0 ) !!0) !! 0
+isFinished $ m' (m' (m' (m' ( m' ( m' hard' !! 0) !! 0) !! 0) !!0 ) !!0)
+m' (m' (m' (m' ( m' ( m' hard' !! 0) !! 0) !! 0) !!0 ) !!0)
+m' (m' (m' ( m' ( m' hard' !! 0) !! 0) !! 0) !!0 )
+m' (m' ( m' ( m' hard' !! 0) !! 0) !! 0)
+m' ( m' ( m' hard' !! 0) !! 0)
+( m' ( m' hard' !! 0) !! 0)
+ m' ( m' hard' !! 0)
+ m' $ m' hard' !! 0
+m' $ m' $ m' hard' !! 0 !! 0
+m' $ m' hard' !! 0
+m' $ m' hard'
+m' hard'
+let m' ha = map (\x->removeOne x ha) $ getCandidates ha
+map (\x->removeOne x hard''') $ getCandidates hard'''
+let hard''' = [N,N,N,N,N,N,R,R,R,R,R,L,L,L,R]
+let hard''' = [[N,N,N,N,N,N,R,R,R,R,R,L,L,L,R]
+map (\x->removeOne x hard'') $ getCandidates hard''
+let hard'' = [N,N,N,N,L,L,R,R,R,R,R,L,L,L,R]
+map (\x->removeOne x hard') $ getCandidates hard' 
+isFinished hard'
+removeBall' hard'
+let hard' = [R,N,N,L,L,L,R,R,R,R,R,L,L,L,R]
+map (\x->removeOne x hard) $ getCandidates hard 
+getCandidates hard 
+isFinished hard 
+hard
+let hard = toDirection  ">>><<<>>>>><<<>"
+:l Spec.hs 
+let hard = toDirection hard 
+ls
+removeBall' $ toDirection  hard 
+removeBall hard 
+let hard = ">>><<<>>>>><<<>"
+:l Spec.hs 
+xs
+removeOne 1 xs
+getCandidates xs
+removeBall'' xs
+isFinished xs
+removeBall' xs
+let xs = [R,N,N,L,L]
+removeBall' xs
+map (\x->removeOne x xs) $ getCandidates xs
+getCandidates xs
+getCandidates [R,R,R,L,L]
+removeBall'' xs
+let xs = [R,R,R,L,L]
+xs
+:l Spec.hs 
+removeBall'' xs
+let xs = [R,R,R,L,L]
+removeBall'' xs
+getCandidates [R,R,R,L,L]
+:l Spec.hs 
+map (\x -> removeOne x xs) $ getCandidates xs
+getCandidates [R,R,N,N,L]
+getCandidates [R,N,N,L,L]
+getCandidates $ (map (\x -> removeOne x xs) $ getCandidates xs) !! 0
+getCandidates $ (map (\x -> removeOne x xs) $ getCandidates xs) !! 2
+getCandidates $ (map (\x -> removeOne x xs) $ getCandidates xs) !! 1
+getCandidates (map (\x -> removeOne x xs) $ getCandidates xs) !! 1
+getCandidates (head $ map (\x -> removeOne x xs) $ getCandidates xs)
+map (\x -> removeOne x xs) $ getCandidates xs
+map (\x -> removeOne x xs)i $ getCandidates xs
+map (\x -> removeOne x xs)i $:w getCandidates xs
+map (\x -> removeOne x xs) getCandidates xs
+let xs = [R,R,R,L,L]
+map (\x -> removeOne x xs) getCandidates xs
+getCandidates  [R,R,R,L,L]
 :history
 :back
 :trace x [1,2]
