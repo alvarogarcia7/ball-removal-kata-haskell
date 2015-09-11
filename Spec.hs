@@ -12,7 +12,7 @@ main = do
 property_true :: Bool -> Bool
 property_true _ = True
 
-data Direction = L | R | N
+data Direction = L | R | N deriving (Show, Eq)
 
 parseDirection :: Char -> Direction
 parseDirection '<' = L
