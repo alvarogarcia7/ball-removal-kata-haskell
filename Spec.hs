@@ -57,6 +57,12 @@ parseDirection x = N
 getCandidates :: [Direction] -> [Int]
 getCandidates xs = [i|i<-[1..(length xs)-2], xs !! i /= N]
 
+removeOne :: Int -> Directions -> Directions
+removeOne idx dir = let cur = dir !! idx in
+    replaceAtIndex idx N dir
+
+replaceAtIndex idx item xs = a ++ (item:b)
+    where (a, (_:b)) = splitAt idx xs
 
 -- Test
 
