@@ -76,7 +76,7 @@ parseDirection x = N
 getCandidates :: [Direction] -> [Int]
 getCandidates xs = [i|i<-[1..(length xs)-2], xs !! i /= N]
 
-getCandidates' xs = [i|i<-[0..(length xs)-1], xs !! i /= N]
+getAllNonN xs = [i|i<-[0..(length xs)-1], xs !! i /= N]
 
 removeOne :: Int -> Directions -> Directions
 removeOne idx dir = let cur = dir !! idx in
@@ -85,8 +85,8 @@ removeOne idx dir = let cur = dir !! idx in
 putNone idx dir =  replaceAtIndex idx N dir
 
 removeAnother N idx dir = dir
-removeAnother L idx dir = replaceAtIndex (last $ filter (\x -> x < idx) $ getCandidates' dir) N dir
-removeAnother R idx dir = replaceAtIndex (head $ filter (\x -> x > idx) $ getCandidates' dir) N dir
+removeAnother L idx dir = replaceAtIndex (last $ filter (\x -> x < idx) $ getAllNonN dir) N dir
+removeAnother R idx dir = replaceAtIndex (head $ filter (\x -> x > idx) $ getAllNonN dir) N dir
 
 
 replaceAtIndex idx item xs = a ++ (item:b)
