@@ -1,5 +1,6 @@
 
 
+
 filter (not . id) $ map property_sumDigits_ge_sumDigits_factors_n  [2..11000]
 filter (not . id) $ map property_sumDigits_ge_sumDigits_factors_n  [2..1100]
 filter (not . id) $ map property_sumDigits_ge_sumDigits_factors_n  [2..10]
