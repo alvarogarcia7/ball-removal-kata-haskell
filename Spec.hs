@@ -38,7 +38,7 @@ parseDirection '>' = R
 parseDirection x = N
 
 getCandidates :: [Direction] -> [Int]
-getCandidates xs = [1..(length xs)-2]
+getCandidates xs = [i|i<-[1..(length xs)-2], xs !! i /= N]
 
 
 -- Test
