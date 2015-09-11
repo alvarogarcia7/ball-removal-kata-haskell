@@ -1,3 +1,62 @@
+:history
+:back
+:trace x [1,2]
+:set -fbreak-on-error 
+:back
+:history 
+:trace x [1,2]
+:trace map id [1,2]
+let x xs = x xs
+:trace map id [1,2]
+:set -fbreak-on-error 
+:trace map id [1,2]
+:trace map id [1,2]
+ removeBall' $ toDirection ">>><<<>>>>><<<>"
+ removeBall' $ toDirection ">>><<<>>>>><<<>"
+:l Spec.hs 
+ removeBall' $ toDirection ">>><<<>>>>><<<>"
+ removeBall' $ toDirection ">>><<<>>>>><<<>"
+ removeBall'' $ toDirection ">>><<<>>>>><<<>"
+:l Spec.hs 
+ removeBall'' $ toDirection ">>><<<>>>>><<<>"
+:l Spec.hs 
+ removeBall'' $ toDirection ">>><<<>>>>><<<>"
+ removeBall'' $ toDirection ">>><<<>>>>><<<>"
+:l Spec.hs 
+:t map
+forAll [1,2,3]. id
+forAll id [1,2,3]
+forAll [1,2,3]
+removeBall'  [L,R,R,L,R]
+removeBall'  [L,R,R,L,L]
+removeBall'  [L,R,R,L,N]
+removeBall'  [L,R,R,L]
+removeBall'  [L,R,R,L,L]
+:l Spec.hs 
+removeBall'  [L,R,R,L,L]
+getCandidates  [L,R,R,L,L]
+removeBall' [L,R,R,L,L]
+removeBall' [L,R,R]
+:l Spec.hs 
+removeBall'' [R,N,N,L,L]
+removeBall'' [R,N,N,L,L]
+:l Spec.hs 
+removeBall'' [R,N,N,L,L]
+getCandidates [R,N,N,L,L]
+removeBall'' $ toDirection ">>><<"
+:l Spec.hs 
+ removeBall'' $ toDirection ">>><<<>>>>><<<>"
+ removeBall'' $ toDirection ">>><<<>>>>><<<>"
+:l Spec.hs 
+ removeBall'' $ toDirection ">>><<<>>>>><<<>"
+:l Spec.hs 
+ removeBall'' $ toDirection ">>><<<>>>>><<<>"
+:l Spec.hs 
+ removeBall'' $ toDirection ">>><<<>>>>><<<>"
+ removeBall'' ">>><<<>>>>><<<>"
+ removeBall ">>><<<>>>>><<<>"
+:l Spec.hs 
+
 
 length $ removeBall ">>><<<>>>>><<<>"
 removeBall ">>><<<>>>>><<<>"
