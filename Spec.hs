@@ -5,6 +5,7 @@ main :: IO ()
 main = do
   quickCheck property_true 
   quickCheck property_getCandidates_does_not_include_the_first_element
+  quickCheck property_getCandidates_does_not_include_the_last_element
   hspec $ do
     describe "Canary Test" $ do
         it "should be green" $ do
@@ -16,7 +17,7 @@ main = do
 
     describe "get candidates" $ do
         it "of a valid array" $ do
-	  getCandidates [L,L,L] `shouldBe` [1,2]
+	  getCandidates [L,L,L] `shouldBe` [1]
 
 
 property_true :: Bool -> Bool
@@ -34,13 +35,16 @@ parseDirection '>' = R
 parseDirection x = N
 
 getCandidates :: [Direction] -> [Int]
-getCandidates xs = [1..(length xs)-1]
+getCandidates xs = [1..(length xs)-2]
 
 
 -- Test
 
 property_getCandidates_does_not_include_the_first_element :: [Direction] -> Bool
 property_getCandidates_does_not_include_the_first_element xs = not $ 0 `elem` (getCandidates xs)
+
+property_getCandidates_does_not_include_the_last_element :: [Direction] -> Bool
+property_getCandidates_does_not_include_the_last_element xs = not $ ((length xs)-1) `elem` (getCandidates xs)
 
 instance Arbitrary Direction where
     arbitrary = return L
