@@ -11,3 +11,10 @@ main = do
 
 property_true :: Bool -> Bool
 property_true _ = True
+
+data Direction = L | R | N
+
+parseDirection :: Char -> Direction
+parseDirection '<' = L
+parseDirection '>' = R
+parseDirection x = N

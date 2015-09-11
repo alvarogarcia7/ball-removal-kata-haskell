@@ -1,0 +1,201 @@
+
+filter (not . id) $ map property_sumDigits_ge_sumDigits_factors_n  [2..11000]
+filter (not . id) $ map property_sumDigits_ge_sumDigits_factors_n  [2..1100]
+filter (not . id) $ map property_sumDigits_ge_sumDigits_factors_n  [2..10]
+filter (not . id) $ map property_sumDigits_ge_sumDigits_factors_n  [1..10]
+:l Spec.hs 
+filter (not . id) $ map property_sumDigits_ge_n [1..1000000]
+filter (not . id) $ map property_sumDigits_ge_n [1..100000]
+filter (not . id) $ map property_sumDigits_ge_n [1..10000]
+filter (not . id) $ map property_sumDigits_ge_n [1..]
+filter (!id) $ map property_sumDigits_ge_n [1..]
+filter (id) $ map property_sumDigits_ge_n [1..]
+filter (not id) $ map property_sumDigits_ge_n [1..]
+map property_sumDigits_ge_n [1..]
+property_sumDigits_ge_n 1
+:l Spec.hs 
+:k Num
+Main.abs $ Integer' (-1)
+Main.abs $ Integer' -1
+Main.abs $ Integer' 1
+abs $ Integer' 1
+:l Spec.hs 
+abs $ Integer' 1
+abs Integer' 1
+Integer' 1
+Integer' 1
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+Integer' 1
+let property_sumDigits_ge_n (Integer n) = (n - (sumDigits n)) >= 0
+let property_sumDigits_ge_n (Integer n) =  (n - (sumDigits n=)) >= 0
+let property_sumDigits_ge_n (Integer n) = 0 <= $ n - $ sumDigits n
+let property_sumDigits_ge_n (Integer n) = 0 <= n - $ sumDigits n
+22 - sumDigits 22
+sumDigits 22
+:l Spec.hs 
+max 1 1
+max 1, 1
+max(1, 1)
+main
+quickCheck prop_true 
+:l Spec.hs 
+foldl1 (+) $ map (\x -> read [x] :: Int) $ show 1234
+1 + 1
+foldl1 (+) $ map (\x -> read [x] :: Int) $ show 1234
+foldl1 (+) $ map (\x -> read [x] :: Int) $ show 1234
+map (\x -> read [x] :: Int) $ show 1234
+map (\x -> read [x] :: Int) (show 1234)
+map (\x -> read x :: Int) (show 1234)
+map (\x -> read x :: Int) $ show 1234
+:t splitAt 
+splitAt "," "abc"
+split "," $ intersperse "," $ show 1234
+show 1234
+"" + 1234
+let n = 1234
+isSmith 6
+isSmith 5
+isSmith 4
+isSmith 3
+isSmith 2
+isSmith 1
+isSmith 0
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+isSmith 0
+isSmith 26
+isSmith 22
+isSmith 50
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+null [1]
+null []
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+isSmith 1
+isSmith 1
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+foldl1 (+) $ map sumDigits $ factors (37 * 2)
+reduce (+) $ map sumDigits $ factors (37 * 2)
+map sumDigits $ factors (37 * 2)
+map sumDigits $ factors (37*2)
+foldl1 (+) $ map (\x -> read [x] :: Int) $ show 1234
+1 + 1
+foldl1 (+) $ map (\x -> read [x] :: Int) $ show 1234
+foldl1 (+) $ map (\x -> read [x] :: Int) $ show 1234
+map (\x -> read [x] :: Int) $ show 1234
+map (\x -> read [x] :: Int) (show 1234)
+map (\x -> read x :: Int) (show 1234)
+map (\x -> read x :: Int) $ show 1234
+:t splitAt 
+splitAt "," "abc"
+split "," $ intersperse "," $ show 1234
+show 1234
+"" + 1234
+let n = 1234
+isSmith 6
+isSmith 5
+isSmith 4
+isSmith 3
+isSmith 2
+isSmith 1
+isSmith 0
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+isSmith 0
+isSmith 26
+isSmith 22
+isSmith 50
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+null [1]
+null []
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+isSmith 1
+isSmith 1
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+foldl1 (+) $ map sumDigits $ factors (37 * 2)
+reduce (+) $ map sumDigits $ factors (37 * 2)
+map sumDigits $ factors (37 * 2)
+map sumDigits $ factors (37*2)
+map sumDigits $ factors 37*2
+map sumDigits $ factors 1584
+map sumDigits $ factors 1
+foldl1 sumDigits $ factors 1
+let isSmith n = sumDigits n == foldl1 sumDigits $ factors n
+:l Spec.hs 
+factors 1584
+:l Spec.hs 
+factors 1584
+:l Spec.hs 
+:l Spec.hs 
+factors' 1584 []
+factors' 777 []
+factors' 734567777 []
+factors' 73456 []
+factors' 280 []
+factors' 80 []
+factors' 40 []
+factors' 40 [4]
+factors' 40 []
+:l Spec.hs 
+:l Spec.hs 
+factors' 40 []
+:l Spec.hs 
+factors' 40 []
+factors' 5 []
+factors' 5
+:l Spec.hs 
+:l Spec.hs 
+:l Spec.hs 
+foldl1 (*) [2,3]
+foldl1 [2,3] (*)
+foldl1 [2,3] *
+factors 56
+factors 5
+:l Spec.hs 
+:l Spec.hs 
+:k Integral 
+:t Integral 
+Integral
+Integral 1
+Integral:: 1
+Integral 1
