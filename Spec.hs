@@ -159,3 +159,14 @@ property_getCandidates_does_not_include_the_last_element xs = not $ ((length xs)
 
 instance Arbitrary Direction where
     arbitrary = oneof $ map return [L, N, R]
+
+slow_fib :: Int -> Integer
+slow_fib 0 = 0
+slow_fib 1 = 1
+slow_fib n = slow_fib (n-2) + slow_fib (n-1)
+
+memo_fib :: Int -> Integer
+memo_fib = (map fib [0..] !!)
+    where fib 0 = 0
+          fib 1 = 1
+	  fib n = memo_fib (n-2) + memo_fib (n-1)
