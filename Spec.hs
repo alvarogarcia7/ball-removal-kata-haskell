@@ -1,5 +1,6 @@
 import Test.Hspec
 import Test.QuickCheck
+import Data.List
 
 main :: IO ()
 main = do
@@ -88,6 +89,8 @@ main = do
 property_true :: Bool -> Bool
 property_true _ = True
 
+slowTest = removeBall ">>><<<>>>>><<<>" == "o.....o.o.....o"
+
 data Direction = L | R | N deriving (Show, Eq)
 type Directions = [Direction]
 
@@ -134,7 +137,7 @@ removeBall' xs = if isFinished xs
                  then xs
 		 else foldl1 merg $ removeBall'' xs
 		 
-removeBall'' xs = map (\x-> removeBall' $ removeOne x xs) $ getCandidates xs 
+removeBall'' xs = nub $ map (\x-> removeBall' $ removeOne x xs) $ getCandidates xs 
 
 merg [] _ = []
 merg _ [] = []
