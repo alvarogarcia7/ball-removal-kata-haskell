@@ -143,11 +143,9 @@ merg [] _ = []
 merg _ [] = []
 merg (x:xs) (x':xs') = unio x x' : merg xs xs'
 
-unio L _ = L
-unio R _ = R
-unio _ L = L
-unio _ R = R
-unio N N = N
+unio x N = x
+unio N x = x
+unio x y = y
 
 -- Test
 
