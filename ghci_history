@@ -1,3 +1,26 @@
+filter (\x -> x > 1) [0,2,1,0]
+takeWhile (\x -> x > 1) [0,2,1,0]
+takeWhile (\x -> x > 1) [2,1,0]
+takeWhile (\x -> x > 1) [1,0]
+takeWhile (\x -> x > 1) $ getCandidates' [L,R,L]
+takeWhile (\x -> x > 1)
+getCandidates' [L,R,L]
+getCandidates [L,R,L]
+removeAnother R 1 [L,R,L]
+removeAnother L 1 [L,R,L]
+removeAnother L 1 [R,R,N]
+removeAnother L 1 [R,L,N]
+:l Spec.hs 
+head  [L]
+fst [L]
+last [N,R,L]
+fst [L,R,R,N,R,R]
+first [L,R,R,N,R,R]
+getCandidates [L,R,R,N,R,R]
+getCandidates [L,N,R,R]
+getCandidates [L,N,R]
+:l Spec.hs 
+
 head $ dropWhile (\x -> x == N) [xs !! i|i<- [1..2]]
 head dropWhile (\x -> x == N) [xs !! i|i<- [1..2]]
 dropWhile (\x -> x == N) [xs !! i|i<- [1..2]]
