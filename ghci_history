@@ -1,3 +1,54 @@
+length $ removeBall ">>><<<>>>>><<<>"
+removeBall ">>><<<>>>>><<<>"
+removeBall ">>><<<>>>>><<>"
+removeBall ">>><<<>>>>><<>>"
+removeBall "<><<><>"
+removeBall "<<><<"
+removeBall ">>><<"
+removeBall "<<<"
+removeBall "<><"
+removeBall "<>>"
+removeBall "<a>"
+removeBall "<>"
+:l Spec.hs 
+foldl1 merg [[N,R],[R,N]]
+foldl1 merg [[L,R],[R,N]]
+foldl1 merg [[L,R],[R,L]]
+merg [N,N] [R,N]
+merg [L,N] [R,N]
+merg [L,R] [R,N]
+merg [L,R] [R,L]
+merg [[L,R],[R,L]]
+take 20 initial 
+:l Spec.hs 
+foldl1 merg [[L,R],[L,N]]
+let initial  = toDirection ['<','<'..]
+toDirection ['<','<'..]
+['<','<'..]
+['<'..]
+[L..]
+removeBall'' [L,L,L,L,N]
+removeBall'' [L,L,N]
+:l Spec.hs 
+:l Spec.hs 
+removeBall'' [L,L,N]
+:l Spec.hs 
+removeBall' [L,L,N]
+removeBall' [L,L,N]
+:l Spec.hs 
+removeBall' [L,L,N]
+removeBall' [L,L,L]
+removeBall' [L,L,R]
+removeBall' [L,L,L]
+removeBall' [L,L,N]
+removeBall' [L, R,N]
+removeBall [L, R , N]
+removeBall "<<><<"
+removeBall "<<>"
+removeBall ">><<"
+:l Spec.hs 
+:l Spec.hs 
+
 :l Spec.hs 
 
  [0..]
