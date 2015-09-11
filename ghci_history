@@ -1,3 +1,79 @@
+removeOne 2 [L,R,L]
+:l Spec.hs 
+removeOne 2 [L,R,L]
+:l Spec.hs 
+removeOne 1 [L,L]
+:l Spec.hs 
+replaceAtIndex 1 R [L,L,L]
+:l Spec.hs 
+length $ filter (\x->x /= N) [L, L]
+length $ filter (\x->x /= N) [L, N]
+minBound Directions
+minBound Direction
+:l Spec.hs 
+minBound Direction
+minBound Direction
+minBound :: Direction
+minBound Direction
+[minBound..maxBound] :: Direction
+[minBound..maxBound] Direction
+:t L
+L
+Direction any
+Direction
+any Direction
+getCandidates [L,L]
+length  [L,L]
+getCandidates [L,L]
+:l Spec.hs 
+:t ([L] :: Directions)
+[L] :: Directions
+Directions
+Directions [L]
+type Directions = [Direction]
+Da 1
+data Da = Vector
+Da []
+Da
+data Da = Array Direction 
+D
+data D = Array Direction 
+([L, N] :: D)
+[L, N] :: D
+data D = Array Direction 
+let d = D [L, N, R]
+d
+let d = [L, N, R]
+let D = [L, N, R]
+D = [L, N, R]
+data D = Array Direction 
+data D a = [a]
+data D a = [a]
+getCandidates [1,2,4,6,3]
+getCandidates [1,2,4,3]
+getCandidates [1,2,3]
+let getCandidates xs = reverse $ drop 1 $ reverse $ drop 1 xs
+getCandidates [1,2,3]
+getCandidates [1,2,3]
+let getCandidates xs = drop (length xs) $ drop 1 [1,2,3] 
+drop 1 [1,2,3] 
+map parseDirection "><55"
+ls
+parseDirection '<'
+:l Spec.hs 
+parseDirection '<'
+:l Spec.hs 
+:k case of
+:t case of
+:t in
+:t in case
+:t case
+let toDirection x = map (\c -> case of '<' L) x
+let toDirection x = map (\c -> case of '<' L) x
+let toDirection x = map (\c -> c in case of '<' L) x
+let toDirection x = map (\c -> c in case of '<' L) 
+data Direction = L|R|N
+
 removeOne 1 [L,L]
 :l Spec.hs 
 replaceAtIndex 1 R [L,L,L]
