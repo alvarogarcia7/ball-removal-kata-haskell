@@ -41,6 +41,15 @@ main = do
         it "should remove the last element, L" $ do
 	  removeOne 2 [L,R,L] `shouldBe` [L, N, N]
 
+        it "should remove the first element, L" $ do
+	  removeOne 0 [R,R,L] `shouldBe` [N, N, L]
+
+        it "should remove the middle element, R" $ do
+	  removeOne 1 [L,R,L] `shouldBe` [L, N, N]
+
+        it "should remove the middle element, L" $ do
+	  removeOne 1 [L,L,L] `shouldBe` [N, N, L]
+
 property_true :: Bool -> Bool
 property_true _ = True
 
