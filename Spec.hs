@@ -53,6 +53,9 @@ main = do
         it "should remove the middle element, R" $ do
 	  removeOne 1 [L,R,N,L] `shouldBe` [L, N, N, N]
 
+        it "should remove the middle element, L" $ do
+	  removeOne 3 [L,R,N,L] `shouldBe` [L, N, N, N]
+
 property_true :: Bool -> Bool
 property_true _ = True
 
@@ -73,13 +76,17 @@ parseDirection x = N
 getCandidates :: [Direction] -> [Int]
 getCandidates xs = [i|i<-[1..(length xs)-2], xs !! i /= N]
 
+getCandidates' xs = [i|i<-[0..(length xs)-1], xs !! i /= N]
+
 removeOne :: Int -> Directions -> Directions
 removeOne idx dir = let cur = dir !! idx in
-    removeAnother cur idx $ replaceAtIndex idx N dir
+    removeAnother cur idx $ putNone idx dir
+
+putNone idx dir =  replaceAtIndex idx N dir
 
 removeAnother N idx dir = dir
-removeAnother L idx dir = replaceAtIndex (idx - 1) N dir
-removeAnother R idx dir = replaceAtIndex (idx + 1) N dir
+removeAnother L idx dir = replaceAtIndex (last $ filter (\x -> x < idx) $ getCandidates' dir) N dir
+removeAnother R idx dir = replaceAtIndex (head $ filter (\x -> x > idx) $ getCandidates' dir) N dir
 
 
 replaceAtIndex idx item xs = a ++ (item:b)
