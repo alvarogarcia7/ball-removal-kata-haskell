@@ -37,6 +37,9 @@ property_true _ = True
 data Direction = L | R | N deriving (Show, Eq)
 type Directions = [Direction]
 
+isFinished :: Directions -> Bool
+isFinished xs = (length $ filter (\x->x /= N) xs) `elem` [0, 1]
+
 toDirection :: String -> [Direction]
 toDirection = map parseDirection
 
