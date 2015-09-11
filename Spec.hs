@@ -31,6 +31,12 @@ main = do
 	  isFinished [N,N,L,N] `shouldBe` True 
 	  isFinished [N,N,L] `shouldBe` True 
 
+        it "should detect an unfinished array" $ do
+	  isFinished [L,L] `shouldBe` False
+	  isFinished [N,L,L] `shouldBe` False
+	  isFinished [L,N,L] `shouldBe` False
+	  isFinished [L,L,N] `shouldBe` False
+
 property_true :: Bool -> Bool
 property_true _ = True
 
