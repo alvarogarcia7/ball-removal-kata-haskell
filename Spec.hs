@@ -47,4 +47,4 @@ property_getCandidates_does_not_include_the_last_element :: [Direction] -> Bool
 property_getCandidates_does_not_include_the_last_element xs = not $ ((length xs)-1) `elem` (getCandidates xs)
 
 instance Arbitrary Direction where
-    arbitrary = return L
+    arbitrary = oneof $ map return [L, N, R]
