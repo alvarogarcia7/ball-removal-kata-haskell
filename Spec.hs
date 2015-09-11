@@ -37,6 +37,10 @@ main = do
 	  isFinished [L,N,L] `shouldBe` False
 	  isFinished [L,L,N] `shouldBe` False
 
+    describe "remove elements" $ do
+        it "should remove the last element, L" $ do
+	  removeOne 2 [L,R,L] `shouldBe` [L, N, N]
+
 property_true :: Bool -> Bool
 property_true _ = True
 
@@ -59,7 +63,12 @@ getCandidates xs = [i|i<-[1..(length xs)-2], xs !! i /= N]
 
 removeOne :: Int -> Directions -> Directions
 removeOne idx dir = let cur = dir !! idx in
-    replaceAtIndex idx N dir
+    removeAnother cur idx $ replaceAtIndex idx N dir
+
+removeAnother N idx dir = dir
+removeAnother L idx dir = replaceAtIndex (idx - 1) N dir
+removeAnother R idx dir = replaceAtIndex (idx + 1) N dir
+
 
 replaceAtIndex idx item xs = a ++ (item:b)
     where (a, (_:b)) = splitAt idx xs
