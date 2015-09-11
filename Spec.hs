@@ -50,6 +50,9 @@ main = do
         it "should remove the middle element, L" $ do
 	  removeOne 1 [L,L,L] `shouldBe` [N, N, L]
 
+        it "should remove the middle element, R" $ do
+	  removeOne 1 [L,R,N,L] `shouldBe` [L, N, N, N]
+
 property_true :: Bool -> Bool
 property_true _ = True
 
