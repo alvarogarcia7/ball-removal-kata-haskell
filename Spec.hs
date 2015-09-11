@@ -59,6 +59,24 @@ main = do
     describe "remove balls" $ do
         it "case 1" $ do
 	  removeBall "<<>" `shouldBe` "..o"
+
+	it "case 2" $ do
+	  removeBall "<>>" `shouldBe` "o.."
+
+	it "case 3" $ do
+	  removeBall "<><" `shouldBe` "o.."
+
+	it "case 4" $ do
+	  removeBall "<<<" `shouldBe` "..o"
+
+	it "case 5" $ do
+	  removeBall ">>><<" `shouldBe` "o...o"
+
+	it "case 6" $ do
+	  removeBall "<<><<" `shouldBe` "....o"
+
+	it "case 7" $ do
+	  removeBall "<><<><>" `shouldBe` "o.....o"
 	 
 property_true :: Bool -> Bool
 property_true _ = True
@@ -107,7 +125,18 @@ removeBall xs = fromDirection $ removeBall' $ toDirection xs
 removeBall' :: Directions -> Directions
 removeBall' xs = if isFinished xs
                  then xs
-		 else head $ map (\x-> removeOne x xs) $ getCandidates xs
+		 else foldl1 merg $ removeBall'' xs 
+
+removeBall'' :: Directions -> [Directions]
+removeBall'' xs = map (\x-> removeOne x xs) $ getCandidates xs
+
+merg [] _ = []
+merg _ [] = []
+merg (x:xs) (x':xs') = unio x x' : merg xs xs'
+
+unio N _ = N
+unio _ N = N
+unio x _ = x
 
 -- Test
 
