@@ -22,6 +22,14 @@ main = do
         it "of a partially-consumed array" $ do
 	  getCandidates [L,N,L] `shouldBe` []
 
+    describe "is finished" $ do
+        it "should detect a finished array" $ do
+	  isFinished [] `shouldBe` True 
+	  isFinished [N] `shouldBe` True 
+	  isFinished [L,N] `shouldBe` True 
+	  isFinished [N,L,N] `shouldBe` True 
+	  isFinished [N,N,L,N] `shouldBe` True 
+	  isFinished [N,N,L] `shouldBe` True 
 
 property_true :: Bool -> Bool
 property_true _ = True
