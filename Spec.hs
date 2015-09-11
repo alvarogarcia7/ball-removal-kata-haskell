@@ -74,7 +74,7 @@ parseDirection '>' = R
 parseDirection x = N
 
 getCandidates :: [Direction] -> [Int]
-getCandidates xs = [i|i<-[1..(length xs)-2], xs !! i /= N]
+getCandidates xs = [i|i<-[1..(length $ getAllNonN xs)-2]]
 
 getAllNonN xs = [i|i<-[0..(length xs)-1], xs !! i /= N]
 
